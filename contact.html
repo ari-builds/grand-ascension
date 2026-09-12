@@ -23,11 +23,13 @@
         <span class="sub">Credit Repair Solutions</span>
       </span>
     </a>
-    <nav class="main">
+        <nav class="main">
       <a href="index.html">Home</a>
+      <a href="about.html">About</a>
       <a href="services.html">Services</a>
       <a href="work.html">Our Materials</a>
-      <a href="contact.html" class="active">Free Consultation</a>
+      <a href="blog.html">Blog</a>
+      <a href="https://calendly.com/grandascensionllc/30min" target="_blank" rel="noopener">Free Consultation</a>
     </nav>
     <a class="btn btn-gold head-cta" href="https://calendly.com/grandascensionllc/30min" target="_blank" rel="noopener">Book Free Consultation</a>
     <button id="rnmBtn" aria-label="Menu">&#9776;</button>
@@ -43,7 +45,7 @@
       <div class="cta" style="margin-top:1.6rem; display:flex; flex-wrap:wrap; gap:.8rem">
         <a class="btn btn-gold" href="https://calendly.com/grandascensionllc/30min" target="_blank" rel="noopener">Book My Free 30 Minutes</a>
         <a class="btn btn-ghost" href="tel:+16176397775">Call (617) 639-7775</a>
-        <a class="btn btn-ghost" href="sms:+16176397975?&body=Hi%20Grand%20Ascension%2C%20I%27d%20like%20a%20free%20credit%20consultation.">Text "CREDIT" to 617-639-7975</a>
+        <a class="btn btn-ghost" href="sms:+16176397975?&body=CREDIT">Text "CREDIT" to 617-639-7975</a>
       </div>
       <div class="cal-wrap" style="margin-top:2.5rem">
         <div class="calendly-inline-widget" data-url="https://calendly.com/grandascensionllc/30min?primary_color=b8892e&background_color=faf7f1&hide_gdpr_banner=1" style="min-width:320px;height:740px;border:1px solid rgba(214,179,95,.16);border-radius:1rem;overflow:hidden;background:#faf7f1"></div>
@@ -57,7 +59,7 @@
       <div>
         <p class="kicker">Call us now</p>
         <a class="big-phone" href="tel:+16176397775">(617) 639-7775</a>
-        <p style="color:var(--muted)">Or text the word <strong style="color:var(--gold-2)">CREDIT</strong> to <strong style="color:var(--gold-2)"><a href="sms:+16176397975?&body=Hi%20Grand%20Ascension%2C%20I%27d%20like%20a%20free%20credit%20consultation.">617-639-7975</a></strong> and we'll reach out fast.</p>
+        <p style="color:var(--muted)">Or text the word <strong style="color:var(--gold-2)">CREDIT</strong> to <strong style="color:var(--gold-2)"><a href="sms:+16176397975?&body=CREDIT">617-639-7975</a></strong> and we'll reach out fast.</p>
         <div class="cta">
           <a class="btn btn-ghost" href="mailto:grandascensionllc@gmail.com">grandascensionllc@gmail.com</a>
         </div></div>
@@ -82,7 +84,7 @@
           <div>
             <label for="rnmJob">What's on your report?</label>
             <div class="rnm-shell">
-              <textarea id="rnmJob" placeholder="Late payments, collections, repossessions, closed accounts, hard inquiries &mdash; type what you can see."></textarea>
+              <textarea id="rnmJob" placeholder="Late payments, collections, repossessions, closed accounts, hard inquiries. Type what you can see."></textarea>
               <div id="rnmPreviews"></div>
               <div class="rnm-tools">
                 <button type="button" id="rnmAdd" class="rnm-add" aria-label="Add a photo of your report">&plus;</button>
@@ -110,8 +112,10 @@
       <h4>Site</h4>
       <div class="links">
         <a href="index.html">Home</a>
+        <a href="about.html">About</a>
         <a href="services.html">Services &amp; Pricing</a>
         <a href="work.html">Our Materials</a>
+        <a href="blog.html">Blog</a>
         <a href="https://calendly.com/grandascensionllc/30min" target="_blank" rel="noopener">Free Consultation</a>
       </div>
     </div>
@@ -119,7 +123,7 @@
       <h4>Call or text</h4>
       <a class="ftr-phone" href="tel:+16176397775">(617) 639-7775</a>
       <div class="links" style="margin-top:.7rem">
-        <a href="sms:+16176397975?&body=Hi%20Grand%20Ascension%2C%20I%27d%20like%20a%20free%20credit%20consultation.">Text "CREDIT" to 617-639-7975</a>
+        <a href="sms:+16176397975?&body=CREDIT">Text "CREDIT" to 617-639-7975</a>
         <a href="mailto:grandascensionllc@gmail.com">grandascensionllc@gmail.com</a>
       </div>
     </div>
@@ -132,15 +136,17 @@
     <div class="menu-brand">Grand Ascension<small>Credit Repair Solutions</small></div>
     <button id="rnmClose" aria-label="Close">&times;</button>
   </div>
-  <nav class="menu-nav">
+    <nav class="menu-nav">
     <a href="index.html">Home</a>
+    <a href="about.html">About</a>
     <a href="services.html">Services</a>
     <a href="work.html">Our Materials</a>
+    <a href="blog.html">Blog</a>
     <a href="contact.html" class="current">Free Consultation</a>
   </nav>
   <div class="menu-cta">
     <a class="btn btn-gold" href="tel:+16176397775">Call (617) 639-7775</a>
-    <a class="btn btn-ghost" href="sms:+16176397975?&body=Hi%20Grand%20Ascension%2C%20I%27d%20like%20a%20free%20credit%20consultation.">Text "CREDIT"</a>
+    <a class="btn btn-ghost" href="sms:+16176397975?&body=CREDIT">Text "CREDIT"</a>
   </div>
   <p class="menu-note">Free 30-minute consult &middot; Text the word CREDIT to 617-639-7975</p>
 </div>
@@ -211,20 +217,16 @@
       hint.textContent = 'Please add your name and phone number.';
       return;
     }
-    var detail = job
-      ? ' What is on my report: ' + job + '.'
-      : '';
-    if (email) detail += ' My email is ' + email + '.';
-    var text = 'Hi Grand Ascension, I would like a free 30-minute credit consultation. My name is ' + name + ', phone ' + phone + '.' + detail;
+    var text = 'CREDIT';
     if (picked.length && navigator.share && (navigator.canShare || function () { return true; })({ files: picked, text: text })) {
       hint.textContent = 'Tap the Messages icon in the share sheet to send your photos with the text.';
       navigator.share({ files: picked, text: text }).catch(function (e) {
         if (e.name !== 'AbortError') {
-          location.href = 'sms:+16176397975?&body=' + encodeURIComponent(text + ' (I have ' + picked.length + ' photo(s) I will send next.)');
+          location.href = 'sms:+16176397975?&body=' + encodeURIComponent(text);
         }
       });
     } else if (picked.length) {
-      location.href = 'sms:+16176397975?&body=' + encodeURIComponent(text + ' (I have ' + picked.length + ' photo(s) I will send next.)');
+      location.href = 'sms:+16176397975?&body=' + encodeURIComponent(text);
     } else {
       location.href = 'sms:+16176397975?&body=' + encodeURIComponent(text);
     }

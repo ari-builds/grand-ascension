@@ -165,6 +165,16 @@ nav.main a:hover, nav.main a.active { color: var(--gold-2); }
   text-transform: uppercase; margin-top: 1.2rem; font-family: "Outfit", sans-serif; font-weight: 600;
 }
 
+/* About page */
+.about-block h2 { margin-top: .4rem; }
+.about-block p { color: var(--muted); margin: 1.1rem 0 0; }
+.about-block .run-in { font-family: "Playfair Display", serif; font-size: 1.3rem; font-weight: 600; color: var(--ink); line-height: 1.5; }
+.about-block .chip { margin-top: 1.6rem; }
+
+/* Blog coming soon */
+.soon { text-align: center; padding: 3.5rem 1.5rem; }
+.soon p { max-width: 34rem; margin: .8rem auto 0; }
+
 /* Contact */
 .contact-grid { display: grid; gap: 2.5rem; margin-top: 2rem; }
 .big-phone { font-family: "Playfair Display", serif; font-weight: 700; color: var(--gold-2); font-size: clamp(2rem, 7vw, 3.2rem); display: block; margin-top: 1.2rem; }
