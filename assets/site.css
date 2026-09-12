@@ -82,8 +82,12 @@ nav.main a:hover, nav.main a.active { color: var(--gold-2); }
 .head-cta { display: none; }
 #rnmBtn {
   display: inline-flex; align-items: center; justify-content: center;
-  background: none; border: 0; color: var(--ink); cursor: pointer; padding: .4rem;
+  background: transparent; border: 1px solid var(--line); border-radius: .8rem;
+  color: var(--ink); cursor: pointer;
+  min-width: 3rem; height: 3rem; font-size: 1.35rem; line-height: 1; padding: 0 .2rem;
+  -webkit-tap-highlight-color: transparent;
 }
+#rnmBtn:active { border-color: var(--gold-2); }
 
 /* Hero */
 .hero { position: relative; min-height: 88vh; overflow: hidden; display: flex; }
@@ -117,8 +121,9 @@ nav.main a:hover, nav.main a.active { color: var(--gold-2); }
 .card p { color: var(--muted); font-size: .93rem; margin: .5rem 0 0; }
 
 /* Pricing */
-.price { border: 1px solid rgba(214, 179, 95, .35); border-radius: 1.2rem; background: linear-gradient(180deg, rgba(214, 179, 95, .08), transparent); padding: 1.4rem; display: flex; flex-direction: column; transition: transform .22s ease; }
+.price { position: relative; border: 1px solid rgba(214, 179, 95, .35); border-radius: 1.2rem; background: linear-gradient(180deg, rgba(214, 179, 95, .08), transparent); padding: 1.4rem; display: flex; flex-direction: column; transition: transform .22s ease; }
 .price:hover { transform: translateY(-4px); }
+.tier-badge { position: absolute; top: 1rem; right: 1rem; font-family: "Outfit", sans-serif; font-size: .6rem; font-weight: 600; letter-spacing: .12em; text-transform: uppercase; color: var(--gold-2); background: rgba(13, 11, 8, .75); border: 1px solid rgba(214, 179, 95, .5); border-radius: 9999px; padding: .28rem .6rem; }
 .price .tier { text-transform: uppercase; letter-spacing: .14em; font-size: .7rem; color: var(--gold-2); font-weight: 600; }
 .price h3 { margin-top: .3rem; font-size: 1.35rem; }
 .price .amount { font-family: "Playfair Display", serif; font-size: 2.2rem; color: var(--gold-2); margin: .5rem 0; }
@@ -128,14 +133,17 @@ nav.main a:hover, nav.main a.active { color: var(--gold-2); }
 .price .btn { margin-top: auto; }
 
 /* Steps */
-.steps { display: grid; gap: 1.4rem; margin-top: 2.2rem; counter-reset: step; }
-.step .num { font-family: "Playfair Display", serif; font-size: 2.6rem; font-weight: 700; color: var(--gold); line-height: 1; }
+.steps { display: grid; gap: 2.2rem; margin-top: 2.2rem; counter-reset: step; }
+.step .num { font-family: "Playfair Display", serif; font-size: 2.4rem; font-weight: 700; color: var(--gold); line-height: 1; margin-bottom: .9rem; }
+.step h3 { margin: 0 0 .4rem; font-size: 1.25rem; }
+.step p { margin: 0; color: var(--muted); font-size: .93rem; }
 
 /* Work */
 .work-head { display: flex; align-items: flex-end; justify-content: space-between; gap: 1rem; }
 .work-grid { display: grid; gap: 1rem; margin-top: 2rem; }
 .work-grid figure { margin: 0; border-radius: 1rem; overflow: hidden; border: 1px solid var(--line); background: var(--bg-2); }
-.work-grid img { width: 100%; height: 15rem; object-fit: cover; }
+.work-grid img { width: 100%; height: 17rem; object-fit: contain; object-position: center; background: #100d08; }
+.work-grid figure:hover img { transform: scale(1.015); }
 .work-grid figcaption { padding: .7rem 1rem; font-size: .82rem; color: var(--muted); }
 .see-all-mobile { display: inline-flex; margin-top: 1.6rem; }
 .see-all-desktop { display: none; }
@@ -191,15 +199,25 @@ footer .copy { border-top: 1px solid var(--line); padding: 1.1rem; text-align: c
 
 /* Full-screen mobile menu */
 #rnmMenu {
-  position: fixed; inset: 0; z-index: 90; background: rgba(10, 8, 5, .98);
-  display: flex; flex-direction: column; justify-content: center; padding: 2rem;
+  position: fixed; inset: 0; z-index: 90; background: rgba(9, 7, 4, .97);
+  display: flex; flex-direction: column; padding: 1.25rem 1.5rem calc(1.5rem + env(safe-area-inset-bottom));
   transform: translateY(-100%); transition: transform .28s ease; visibility: hidden;
 }
 #rnmMenu.open { transform: translateY(0); visibility: visible; }
-#rnmMenu a { font-family: "Playfair Display", serif; font-size: 2.4rem; font-weight: 700; color: var(--ink); padding: .6rem 0; }
-#rnmMenu a:hover { color: var(--gold-2); }
-#rnmClose { position: absolute; top: 1.2rem; right: 1.2rem; background: none; border: 0; color: var(--gold-2); font-size: 1.6rem; cursor: pointer; }
-#rnmMenu .menu-cta { margin-top: 2rem; display: flex; flex-direction: column; gap: .8rem; }
+#rnmMenu .menu-top { display: flex; align-items: center; justify-content: space-between; margin-bottom: 2.5rem; }
+#rnmMenu .menu-brand { font-family: "Playfair Display", serif; font-weight: 700; font-size: 1.05rem; }
+#rnmMenu .menu-brand small { display: block; font-family: "Outfit", sans-serif; font-size: .64rem; letter-spacing: .14em; text-transform: uppercase; color: var(--muted); margin-top: .2rem; }
+#rnmClose { width: 3rem; height: 3rem; border: 1px solid var(--line); border-radius: .8rem; background: transparent; color: var(--gold-2); font-size: 1.5rem; line-height: 1; cursor: pointer; }
+#rnmMenu .menu-nav { display: flex; flex-direction: column; }
+#rnmMenu .menu-nav a {
+  font-family: "Playfair Display", serif; font-size: 1.5rem; font-weight: 700; color: var(--ink);
+  padding: .8rem 0; border-bottom: 1px solid var(--line); transition: transform .18s ease, color .18s ease;
+}
+#rnmMenu .menu-nav a:hover { color: var(--gold-2); transform: translateX(6px); }
+#rnmMenu .menu-nav a.current { color: var(--gold-2); }
+#rnmMenu .menu-cta { margin-top: 2.2rem; display: grid; grid-template-columns: 1fr 1fr; gap: .7rem; }
+#rnmMenu .menu-cta .btn { padding: .8rem 0; }
+#rnmMenu .menu-note { margin-top: 1.2rem; font-size: .74rem; color: var(--muted); text-align: center; }
 body.rnm-locked { overflow: hidden; }
 
 /* Sticky bottom call/text bar (mobile only) */
@@ -236,4 +254,74 @@ body.rnm-bar-on { padding-bottom: 4.6rem; }
   .stats .grid { grid-template-columns: repeat(2, 1fr); }
   .rnm-add { width: 3.5rem; height: 3.5rem; }
   .rnm-thumb { width: 5.25rem; height: 5.25rem; }
+  .works-grid img { height: auto; }
+}
+
+/* ------------------------------------------------------------------ */
+/* Golden Ascension chat widget */
+/* ------------------------------------------------------------------ */
+#gaChatOpen {
+  position: fixed; right: 1.1rem; bottom: 5.6rem; z-index: 72;
+  display: inline-flex; align-items: center; gap: .55rem;
+  border: 1px solid rgba(214, 179, 95, .55); border-radius: 9999px;
+  background: linear-gradient(180deg, #171207, #100c06); color: var(--gold-2);
+  padding: .75rem 1.1rem; font-family: "Outfit", sans-serif; font-weight: 600; font-size: .88rem; cursor: pointer;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, .4); -webkit-tap-highlight-color: transparent;
+  transition: transform .18s ease;
+}
+#gaChatOpen:hover { transform: translateY(-2px); }
+#gaChatOpen .dot { width: .55rem; height: .55rem; border-radius: 50%; background: var(--gold); box-shadow: 0 0 0 4px rgba(212, 175, 55, .18); }
+
+#gaChat {
+  position: fixed; right: 1rem; bottom: 1rem; left: 1rem; z-index: 95;
+  display: none; flex-direction: column; height: min(78vh, 560px);
+  border: 1px solid rgba(214, 179, 95, .3); border-radius: 1.1rem; overflow: hidden;
+  background: #0e0b07; box-shadow: 0 24px 60px rgba(0, 0, 0, .55);
+}
+#gaChat.open { display: flex; }
+#gaChat .ga-head {
+  display: flex; align-items: center; justify-content: space-between; gap: .6rem;
+  padding: .9rem 1rem; background: #141009; border-bottom: 1px solid var(--line);
+}
+#gaChat .ga-head .ga-id { display: flex; align-items: center; gap: .65rem; }
+#gaChat .ga-head .av { width: 2.1rem; height: 2.1rem; border-radius: 50%; border: 1px solid var(--gold); display: flex; align-items: center; justify-content: center; font-family: "Playfair Display", serif; font-weight: 700; color: var(--gold-2); background: #20190a; }
+#gaChat .ga-head .ga-who b { font-size: .92rem; display: block; }
+#gaChat .ga-head .ga-who span { font-size: .7rem; color: var(--muted); }
+#gaChat .ga-close { width: 2.4rem; height: 2.4rem; border: 1px solid var(--line); border-radius: .7rem; background: transparent; color: var(--gold-2); font-size: 1.2rem; line-height: 1; cursor: pointer; }
+#gaChat .ga-body { flex: 1; overflow-y: auto; padding: 1rem; display: flex; flex-direction: column; gap: .6rem; }
+#gaChat .ga-body::-webkit-scrollbar { width: 6px; }
+#gaChat .ga-body::-webkit-scrollbar-thumb { background: rgba(214, 179, 95, .25); border-radius: 99px; }
+.ga-bubble { max-width: 85%; padding: .62rem .85rem; border-radius: .9rem; font-size: .9rem; line-height: 1.5; white-space: pre-line; }
+.ga-bot { align-self: flex-start; background: #171207; border: 1px solid rgba(214, 179, 95, .18); color: var(--ink); border-bottom-left-radius: .3rem; }
+.ga-user { align-self: flex-end; background: var(--gold); color: #171204; border-bottom-right-radius: .3rem; font-weight: 500; }
+.ga-bubble a { color: var(--gold-2); text-decoration: underline; text-underline-offset: 2px; }
+.ga-user a { color: #171204; text-decoration: none; }
+.ga-chips { display: flex; flex-wrap: wrap; gap: .45rem; padding: .2rem 0 0; }
+.ga-chip {
+  font-family: "Outfit", sans-serif; font-size: .76rem; font-weight: 600; color: var(--gold-2);
+  background: transparent; border: 1px solid rgba(214, 179, 95, .4); border-radius: 9999px; padding: .38rem .7rem; cursor: pointer;
+  transition: background .15s ease, color .15s ease;
+}
+.ga-chip:hover { background: var(--gold); color: #171204; }
+.ga-act { display: flex; gap: .5rem; margin-top: .1rem; }
+.ga-act .btn { padding: .55rem .9rem; font-size: .8rem; }
+#gaChat .ga-in {
+  display: flex; gap: .5rem; padding: .7rem; border-top: 1px solid var(--line); background: #141009;
+}
+#gaChat .ga-in input {
+  flex: 1; border: 1px solid rgba(214, 179, 95, .25); border-radius: .7rem; background: #0e0b07;
+  color: var(--ink); padding: .6rem .8rem; font-size: .9rem;
+}
+#gaChat .ga-in button {
+  border: 1px solid var(--gold); background: var(--gold); color: #171204; border-radius: .7rem;
+  padding: 0 1rem; font-weight: 700; cursor: pointer; font-size: 1rem;
+}
+.ga-typing { align-self: flex-start; display: inline-flex; gap: .22rem; padding: .7rem .9rem; }
+.ga-typing i { width: .35rem; height: .35rem; border-radius: 50%; background: var(--gold-2); animation: ga-blink 1s infinite; }
+.ga-typing i:nth-child(2) { animation-delay: .18s; }
+.ga-typing i:nth-child(3) { animation-delay: .36s; }
+@keyframes ga-blink { 0%, 80%, 100% { opacity: .25; } 40% { opacity: 1; } }
+@media (min-width: 768px) {
+  #gaChat { left: auto; right: 1.2rem; bottom: 1.2rem; width: 24rem; }
+  #gaChatOpen { bottom: 1.4rem; }
 }
