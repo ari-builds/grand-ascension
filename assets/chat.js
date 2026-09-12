@@ -8,6 +8,12 @@
   var PHONE_TEL = "tel:+16176397775";
   var KEYWORD_DISPLAY = "617-639-7975";
   var KEYWORD_SMS = "sms:+16176397975?&body=CREDIT";
+
+  /* Full-AI mode: leave "" to use the built-in knowledge base only. Set it to
+     the Grand Ascension /site-chat endpoint, e.g.
+     "https://your-bot.onrender.com/site-chat", to pass messages to the AI
+     brain. If the endpoint is unreachable, we fall back to the local brain. */
+  var CHAT_ENDPOINT = "";
   var BOOK = "https://calendly.com/grandascensionllc/30min";
   var EMAIL = "grandascensionllc@gmail.com";
 
@@ -322,11 +328,33 @@
       return;
     }
 
-    /* Nothing matched. A real assistant tells you, then hands you to a human. */
+    /* Full-AI mode: route free-form questions to the bot brain, keep the
+       honest hand-off as the fallback. */
+    askAi(text, localUnknown);
+  }
+
+  function localUnknown(text) {
     botMsg(
       "I don't have a solid answer for that one, and I won't make one up. The right move is a free 30-minute consult where you can ask it directly."
     );
     chips(["Book a consult", "Pricing & packages", "What can be disputed", "Our story"], handle);
+  }
+
+  /* Full-AI path. Sends the message to the bot's /site-chat endpoint, which
+     runs the same strict guardian brain as the Telegram bot. Falls back to
+     the local knowledge base on any failure. */
+  function askAi(text, fallback) {
+    if (!CHAT_ENDPOINT) { fallback(); return; }
+    try {
+      fetch(CHAT_ENDPOINT, {
+        method: "POST",
+        headers: { "Content-Type": "application/json", "X-GA-Origin": "chat-widget" },
+        body: JSON.stringify({ message: text }),
+      })
+        .then(function (r) { if (!r.ok) throw new Error("bad status"); return r.json(); })
+        .then(function (d) { botMsg(String(d.reply || "").trim() || "No answer right now. A real consultant can help."); })
+        .catch(function () { fallback(); });
+    } catch (e) { fallback(); }
   }
 
   function handle(text) {

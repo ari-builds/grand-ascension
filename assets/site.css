@@ -213,6 +213,19 @@ footer .links { display: flex; flex-direction: column; gap: .4rem; font-size: .9
 footer .links a:hover { color: var(--gold-solid-2); }
 footer .ftr-phone { font-family: "Playfair Display", serif; font-size: 1.6rem; font-weight: 700; color: var(--gold-solid); }
 footer .copy { border-top: 1px solid rgba(233, 226, 205, .12); padding: 1.1rem; text-align: center; font-size: .72rem; color: #a99f86; }
+footer .legal-links { margin-top: .7rem; display: flex; flex-wrap: wrap; gap: .2rem 1.1rem; justify-content: center; }
+footer .legal-links a { color: #a99f86; }
+footer .legal-links a:hover { color: var(--gold-solid-2); }
+
+/* Legal pages */
+.legal { max-width: 46rem; }
+.legal h2 { font-size: 1.45rem; margin: 2.2rem 0 0; }
+.legal h2:first-of-type { margin-top: 1.6rem; }
+.legal h3 { font-size: 1.05rem; margin: 1.4rem 0 .3rem; }
+.legal p, .legal li { color: var(--muted); font-size: .95rem; }
+.legal ul { margin: .6rem 0 0; padding-left: 1.15rem; }
+.legal li { margin: .35rem 0; }
+.legal .fine { font-size: .78rem; }
 
 /* Full-screen mobile menu */
 #rnmMenu {
