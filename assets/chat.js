@@ -21,7 +21,7 @@
     {
       keys: ["pricing", "price", "cost", "how much", "package", "packages", "fee", "pay", "plan"],
       reply:
-        "Three packages:\n\n- Starter / Credit Analysis: $200\n- Fresh Start / Dispute: $450\n- Complete Repair: $750\n\nAsk me for the full details on any one of them.",
+        "Three packages, each for a different stage:\n\n- Starter / Credit Analysis: $200\n- Fresh Start / Dispute: $450\n- Complete Repair: $750\n\nTap a package below for the full breakdown, or text the word CREDIT and a consultant helps you pick right in your text thread:",
     },
     {
       keys: ["what can", "fix", "remove", "negative", "late", "payment", "collection", "repo", "closed", "inquiry", "hard", "challenge", "dispute", "disputes", "scratch"],
@@ -107,22 +107,23 @@
   ];
 
   /* Full package breakdowns. These run before the generic FAQ so asking about
-     a specific package always gets the complete details. */
+     a specific package always gets the complete details, who it's for, and a
+     direct handoff to the CREDIT text thread. */
   var PACKAGES = [
     {
       keys: ["starter", "credit analysis", "analysis package", "$200", "200 dollar"],
       reply:
-        "The Starter Plan, $200:\n\n- Full credit report review\n- Written credit improvement plan\n- Personal credit score analysis\n\nIt is the Credit Analysis Package: the right fit when you want to understand your report and get a written plan before any disputing. Exact terms are in your written contract, and you can cancel within 3 business days. Start with the free consult so we can look at your report first:",
+        "The Starter Plan, $200:\n\n- Full credit report review\n- Written credit improvement plan\n- Personal credit score analysis\n\nWho it's for: you want to understand your report and hold a written plan before any disputing. It is the right starting point when you are not sure what is on your report yet.\n\nIf your report already has negative marks you want cleaned up, Fresh Start at $450 is the natural step up.\n\nText the word CREDIT and a consultant texts you right there to see how they can help:",
     },
     {
       keys: ["fresh start", "dispute package", "$450", "450 dollar", "hard inquiry", "hard inquiries", "inquiry"],
       reply:
-        "Fresh Start, $450, is the Dispute Package and the most popular choice:\n\n- Everything in the Starter plan\n- Remove up to 10 hard inquiry items\n- Dispute letters for negative entries\n- Personalized dispute strategy\n\nIt is built for the marks actually holding your score down, with removal of up to 10 hard inquiries included. Exact terms are in your written contract, and you can cancel within 3 business days. Start with the free consult:",
+        "Fresh Start, $450, is the Dispute Package and the most popular choice:\n\n- Everything in the Starter plan\n- Remove up to 10 hard inquiry items\n- Dispute letters for negative entries\n- Personalized dispute strategy\n\nWho it's for: your report has real marks on it, like hard inquiries and late payments, and you are ready to act. Most people pick this one because it pairs the analysis with the removal work.\n\nIf marks are spread across the whole report and you want everything managed end to end, Complete Repair at $750 is the full program.\n\nText the word CREDIT and a consultant texts you right there to see how they can help:",
     },
     {
       keys: ["complete repair", "repair package", "$750", "750 dollar", "everything in fresh", "full program"],
       reply:
-        "Complete Repair, $750, is the full program:\n\n- Everything in the Fresh Start plan\n- Debt validation letters\n- Full ongoing dispute management\n- Financial roadmap toward rebuilding\n\nIt is for people who want the whole process handled end to end, from disputes to rebuilding, including funding assistance along the way. Exact terms are in your written contract, and you can cancel within 3 business days. Start with the free consult:",
+        "Complete Repair, $750, is the full program:\n\n- Everything in the Fresh Start plan\n- Debt validation letters\n- Full ongoing dispute management\n- Financial roadmap toward rebuilding\n\nWho it's for: marks spread across your whole report (late payments, collections, repossessions, closed accounts), a history of setbacks, or you want the process handled end to end plus the path to financing.\n\nText the word CREDIT and a consultant texts you right there to see how they can help:",
     },
   ];
 
@@ -186,6 +187,7 @@
         botMsg(
           "Hi, I'm the Grand Ascension assistant. Ask me about pricing, disputes, the process, or our story, and I'll give you a straight answer.",
           function () {
+            if (body.dataset.engaged) return;
             chips(
               ["Pricing & packages", "What can be disputed", "How long does it take?", "Our story", "Book a consult"],
               handle
@@ -252,6 +254,7 @@
   }
 
   function userMsg(text) {
+    body.dataset.engaged = "1";
     body.appendChild(el('<div class="ga-bubble ga-user"></div>')).textContent = text;
   }
 
@@ -270,12 +273,19 @@
     body.scrollTop = body.scrollHeight;
   }
 
+  function clearChips() {
+    var cs = document.querySelectorAll(".ga-chips");
+    for (var i = 0; i < cs.length; i++) cs[i].remove();
+  }
+
   /* ------------------------------------------------------------------ */
   /*  Routing.  Professional, knows what it knows and what it does not.  */
   /* ------------------------------------------------------------------ */
 
   function route(text) {
     var n = text.toLowerCase();
+
+    clearChips();
 
     if (screen && screen.step !== undefined && screen.step < SCREENER_STEPS.length) {
       screenStepInput(text);
@@ -305,7 +315,22 @@
     });
 
     if (ph) {
-      botAction(ph.p.reply, [{ label: "Book Free Consultation", href: BOOK, primary: true }]);
+      botAction(ph.p.reply, [
+        { label: "Text 'CREDIT'", href: KEYWORD_SMS, primary: true },
+        { label: "Book Free Consultation", href: BOOK },
+      ]);
+      return;
+    }
+
+    /* Recommendation: no package named, but they want help choosing. */
+    if (/which .*package|which .*plan|which one|recommend|what .*fit|what should|help me choose|pick|best for me/.test(n)) {
+      botAction(
+        "Quick way to think about it:\n\n- A couple of marks or you just want the plan? Starter, $200.\n- Marks plus inquiries you want removed? Fresh Start, $450.\n- Marks all over and you want it handled end to end? Complete Repair, $750.\n\nText the word CREDIT and a consultant texts you back right there to confirm which one fits you:",
+        [
+          { label: "Text 'CREDIT'", href: KEYWORD_SMS, primary: true },
+          { label: "Book Free Consultation", href: BOOK },
+        ]
+      );
       return;
     }
 
@@ -358,7 +383,7 @@
         botMsg(hit.f.reply);
       }
       if (/price|package|how much|cost|worth|legit|scam/.test(n)) {
-        chips(["Book a free consult", "Ask another question"], handle);
+        chips(["Starter plan", "Fresh Start", "Complete Repair"], handle);
       }
       return;
     }
