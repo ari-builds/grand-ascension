@@ -19,9 +19,9 @@
 
   var FAQ = [
     {
-      keys: ["pricing", "price", "cost", "how much", "package", "packages", "fee", "pay", "starter", "fresh", "complete", "200", "450", "750", "plan"],
+      keys: ["pricing", "price", "cost", "how much", "package", "packages", "fee", "pay", "plan"],
       reply:
-        "Three packages:\n\n- Starter / Credit Analysis: $200\n- Fresh Start / Dispute: $450\n- Complete Repair: $750\n\nEvery package includes a written credit improvement plan and debt validation letters. Which one fits you?",
+        "Three packages:\n\n- Starter / Credit Analysis: $200\n- Fresh Start / Dispute: $450\n- Complete Repair: $750\n\nAsk me for the full details on any one of them.",
     },
     {
       keys: ["what can", "fix", "remove", "negative", "late", "payment", "collection", "repo", "closed", "inquiry", "hard", "challenge", "dispute", "disputes", "scratch"],
@@ -103,6 +103,26 @@
       keys: ["hi", "hello", "hey", "sup", "help", "start", "what can you", "options", "menu"],
       reply:
         "I am the Grand Ascension assistant. I can answer questions about pricing, disputes, the process, our story, or run a quick 30-second check to see if we can help. Pick a topic below or type your question.",
+    },
+  ];
+
+  /* Full package breakdowns. These run before the generic FAQ so asking about
+     a specific package always gets the complete details. */
+  var PACKAGES = [
+    {
+      keys: ["starter", "credit analysis", "analysis package", "$200", "200 dollar"],
+      reply:
+        "The Starter Plan, $200:\n\n- Full credit report review\n- Written credit improvement plan\n- Personal credit score analysis\n\nIt is the Credit Analysis Package: the right fit when you want to understand your report and get a written plan before any disputing. Exact terms are in your written contract, and you can cancel within 3 business days. Start with the free consult so we can look at your report first:",
+    },
+    {
+      keys: ["fresh start", "dispute package", "$450", "450 dollar", "hard inquiry", "hard inquiries", "inquiry"],
+      reply:
+        "Fresh Start, $450, is the Dispute Package and the most popular choice:\n\n- Everything in the Starter plan\n- Remove up to 10 hard inquiry items\n- Dispute letters for negative entries\n- Personalized dispute strategy\n\nIt is built for the marks actually holding your score down, with removal of up to 10 hard inquiries included. Exact terms are in your written contract, and you can cancel within 3 business days. Start with the free consult:",
+    },
+    {
+      keys: ["complete repair", "repair package", "$750", "750 dollar", "everything in fresh", "full program"],
+      reply:
+        "Complete Repair, $750, is the full program:\n\n- Everything in the Fresh Start plan\n- Debt validation letters\n- Full ongoing dispute management\n- Financial roadmap toward rebuilding\n\nIt is for people who want the whole process handled end to end, from disputes to rebuilding, including funding assistance along the way. Exact terms are in your written contract, and you can cancel within 3 business days. Start with the free consult:",
     },
   ];
 
@@ -274,7 +294,22 @@
       return;
     }
 
-    if (/book|schedule|appointment|reserve|calendar|start|sign me|qualify|check|help me|begin|free consult|screener/.test(n)) {
+    /* Package details first: a named package always wins over generic intent. */
+    var ph = null;
+    PACKAGES.forEach(function (p) {
+      var hits = 0;
+      p.keys.forEach(function (k) {
+        if (n.indexOf(k) !== -1) hits++;
+      });
+      if (hits > 0 && (!ph || hits > ph.hits)) ph = { hits: hits, p: p };
+    });
+
+    if (ph) {
+      botAction(ph.p.reply, [{ label: "Book Free Consultation", href: BOOK, primary: true }]);
+      return;
+    }
+
+    if (/book|schedule|appointment|reserve|calendar|sign me|qualify|check|help me|\bstart\b|free consult|screener/.test(n)) {
       startScreener();
       return;
     }
