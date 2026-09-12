@@ -113,7 +113,7 @@
         "</div>" +
         "</div>"
     );
-    document.body.appendChild(shell.firstChild);
+    document.body.appendChild(shell);
     var openBtn = document.getElementById("gaChatOpen");
     var chat = document.getElementById("gaChat");
     body = chat.querySelector(".ga-body");
@@ -344,5 +344,9 @@
     }
   }
 
-  document.addEventListener("DOMContentLoaded", build);
+  if (document.readyState === "loading") {
+    document.addEventListener("DOMContentLoaded", build);
+  } else {
+    build();
+  }
 })();

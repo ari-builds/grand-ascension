@@ -227,23 +227,11 @@ footer .copy { border-top: 1px solid rgba(233, 226, 205, .12); padding: 1.1rem; 
 #rnmMenu .menu-note { margin-top: 1.2rem; font-size: .74rem; color: var(--muted); text-align: center; }
 body.rnm-locked { overflow: hidden; }
 
-/* Sticky bottom call/text bar (mobile only) */
-#rnmBar {
-  display: grid; grid-template-columns: 1fr 1fr; gap: .6rem;
-  position: fixed; left: 0; right: 0; bottom: 0; z-index: 80;
-  padding: .7rem 1rem calc(.7rem + env(safe-area-inset-bottom));
-  background: rgba(250, 247, 241, .97); border-top: 1px solid var(--line);
-}
-#rnmBar a { padding: .85rem 1rem; font-weight: 600; }
-body.rnm-bar-on { padding-bottom: 4.6rem; }
-
 /* Desktop */
 @media (min-width: 768px) {
   nav.main { display: flex; }
   #rnmBtn { display: none; }
   .head-cta { display: inline-flex; gap: .5rem; }
-  #rnmBar { display: none; }
-  body.rnm-bar-on { padding-bottom: 0; }
   .section-block { padding: 6rem 0; }
   .grid3 { grid-template-columns: repeat(3, 1fr); }
   .grid4 { grid-template-columns: repeat(4, 1fr); }
@@ -267,7 +255,7 @@ body.rnm-bar-on { padding-bottom: 4.6rem; }
 /* Golden Ascension chat widget (light) */
 /* ------------------------------------------------------------------ */
 #gaChatOpen {
-  position: fixed; right: 1.1rem; bottom: 5.6rem; z-index: 72;
+  position: fixed; right: 1.1rem; bottom: 1.2rem; z-index: 72;
   display: inline-flex; align-items: center; gap: .55rem;
   border: 1px solid rgba(156, 118, 34, .4); border-radius: 9999px;
   background: var(--paper); color: var(--gold-2);

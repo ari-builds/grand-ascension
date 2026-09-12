@@ -127,10 +127,7 @@
   <p class="menu-note">Free 30-minute consult &middot; Text the word CREDIT to 617-639-7975</p>
 </div>
 
-<nav id="rnmBar">
-  <a class="btn btn-gold" href="tel:+16176397775">Call</a>
-  <a class="btn btn-ghost" href="sms:+16176397975?&body=Hi%20Grand%20Ascension%2C%20I%27d%20like%20a%20free%20credit%20consultation.">Text "CREDIT"</a>
-</nav>
+
 
 <script>
 (function () {
@@ -144,11 +141,7 @@
     menu.classList.remove('open');
     document.body.classList.remove('rnm-locked');
   });
-  if (window.matchMedia('(max-width: 767px)').matches) document.body.classList.add('rnm-bar-on');
-  window.addEventListener('resize', function () {
-    document.body.classList.toggle('rnm-bar-on', window.matchMedia('(max-width: 767px)').matches);
-  });
-})();
+  })();
 </script>
 <script src="assets/chat.js" defer></script>
 </body>
