@@ -17,9 +17,16 @@
   var BOOK = "https://calendly.com/grandascensionllc/30min";
   var EMAIL = "grandascensionllc@gmail.com";
 
-  var TOPICS = ["Pricing & packages", "What can be disputed", "How long does it take?", "Our story", "Book a consult"];
+var TOPICS = ["Pricing & packages", "What can be disputed", "How long does it take?", "Tradelines & building", "Our story", "Book a consult"];
 
   var FAQ = [
+    {
+      keys: ["tradeline", "tradelines", "authorized user", "authorized user tradeline", "credit builder", "builder loan", "secured card", "high limit", "high limits", "bank relationship", "relationship with the bank", "relationship with my bank", "funding", "building", "rebuild credit", "line of credit"],
+      reply:
+        "Repair cleans up your report. Building keeps it up. Alongside disputes, Jelinsky helps clients find the right pieces to grow:\n\n- New tradelines picked to fit your credit profile\n- Credit builder loans and credit cards\n- Authorized user tradelines that suit your goals\n- How to manage high limits responsibly\n- How to build a relationship with your bank so they offer even higher limits over time\n\nIt all starts with the free 30-minute consult, where we look at your report and match a building plan to it:",
+      link: BOOK,
+      linkLabel: "Book Free Consultation",
+    },
     {
       keys: ["pricing", "price", "cost", "how much", "package", "packages", "fee", "pay", "plan"],
 reply:
