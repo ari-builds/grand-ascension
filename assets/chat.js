@@ -4,8 +4,8 @@
 (function () {
   "use strict";
 
-  var PHONE_DISPLAY = "(617) 639-7775";
-  var PHONE_TEL = "tel:+16176397775";
+  var PHONE_DISPLAY = "(617) 639-7975";
+  var PHONE_TEL = "tel:+16176397975";
   var KEYWORD_DISPLAY = "617-639-7975";
   var KEYWORD_SMS = "sms:+16176397975?&body=CREDIT";
 
