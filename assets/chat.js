@@ -142,8 +142,8 @@ reply:
     },
     {
       keys: ["complete repair", "repair package", "$750", "750 dollar", "everything in fresh", "full program"],
-      reply:
-        "Complete Repair, $750, is the full program:\n\n- Everything in the Fresh Start plan\n- Debt validation letters\n- Full ongoing dispute management\n- Financial roadmap toward rebuilding\n\nWho it's for: marks spread across your whole report (late payments, collections, repossessions, closed accounts), a history of setbacks, or you want the process handled end to end plus the path to financing.\n\nNo upfront payment. If your score starts below 600 and our work does not get it to at least 600, you do not pay at all.\n\nText the word CREDIT to 617-639-7975 and a consultant texts you right there to see how they can help:",
+reply:
+        "Complete Repair, $750, is the full program:\n\n- Everything in the Fresh Start plan\n- Priority, expedited handling so your disputes move faster\n- Debt validation letters\n- Full ongoing dispute management\n- Financial roadmap toward rebuilding\n\nWho it's for: marks spread across your whole report (late payments, collections, repossessions, closed accounts), a history of setbacks, or you want the process handled end to end plus the path to financing.\n\nNo upfront payment. If your score starts below 600 and our work does not get it to at least 600, you do not pay at all.\n\nText the word CREDIT to 617-639-7975 and a consultant texts you right there to see how they can help:",
     },
   ];
 
