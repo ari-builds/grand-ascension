@@ -181,7 +181,7 @@ reply:
         '<div id="gaChat" role="dialog" aria-label="Grand Ascension chat">' +
         '  <div class="ga-head">' +
         '    <div class="ga-id"><span class="av">GA</span>' +
-        '      <span class="ga-who"><b>Grand Ascension</b><span>Credit repair, replies fast</span></span>' +
+        '      <span class="ga-who"><b>Grand Ascension</b><span>Credit consultant, replies fast</span></span>' +
         "    </div>" +
         '    <button class="ga-close" aria-label="Close chat">&times;</button>' +
         "  </div>" +
