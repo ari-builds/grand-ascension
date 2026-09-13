@@ -128,7 +128,7 @@ nav.main a:hover, nav.main a.active { color: var(--gold-2); }
 
 /* Stats */
 .stats { border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); background: var(--bg-2); }
-.stats .grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1rem 2rem; padding: 1.4rem 0; }
+.stats .grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1rem 2rem; padding: 1.4rem 0 1.4rem 1rem; }
 .stats .item { font-family: "Playfair Display", serif; font-weight: 700; font-size: 1.05rem; color: var(--gold-2); }
 .stats .item span { display: block; font-family: "Outfit", sans-serif; font-size: .72rem; font-weight: 500; color: var(--muted); text-transform: uppercase; letter-spacing: .12em; margin-bottom: .15rem; }
 
