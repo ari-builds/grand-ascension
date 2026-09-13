@@ -22,8 +22,8 @@
   var FAQ = [
     {
       keys: ["pricing", "price", "cost", "how much", "package", "packages", "fee", "pay", "plan"],
-      reply:
-        "Three packages, each for a different stage:\n\n- Starter / Credit Analysis: $200\n- Fresh Start / Dispute: $450\n- Complete Repair: $750\n\nTap a package below for the full breakdown, or text the word CREDIT and a consultant helps you pick right in your text thread:",
+reply:
+        "Three packages, each for a different stage:\n\n- Starter / Credit Analysis: $200\n- Fresh Start / Dispute: $450\n- Complete Repair: $750\n\nNo upfront payment on any package. You pay only after every dispute is fully finalized and you receive your final summary report. If your score starts below 600 and our work does not get it to at least 600, you do not pay at all.\n\nTap a package for the full breakdown, or text the word CREDIT and a consultant helps you pick right in your text thread:",
     },
     {
       keys: ["what can", "fix", "remove", "negative", "late", "payment", "collection", "repo", "closed", "inquiry", "hard", "challenge", "dispute", "disputes", "scratch"],
@@ -74,10 +74,20 @@
       link: "https://ari-builds.github.io/grand-ascension/about.html",
       linkLabel: "Read Our Story",
     },
-    {
+{
       keys: ["guarantee", "guaranteed", "results", "score go", "how fast", "improve", "worth", "legit", "scam", "real", "trust", "ripoff"],
       reply:
-        "We never promise a specific number. Individual results vary, and any company that promises a fixed score is not being straight with you. What we do promise is a written plan, personal dispute letters, and a process run item by item. Your score moves when entries are corrected and updated.",
+        "We never promise a specific number, and results depend on how the bureaus respond. What we can promise is this: you pay nothing upfront, and if your score starts below 600 and our work does not get it to at least 600, you do not pay at all for the package. Every package carries that outcome guarantee. You also get a written plan, personal dispute letters, and a process run item by item.",
+    },
+    {
+      keys: ["cancel", "cancellation", "change my mind", "back out", "refund", "money back"],
+      reply:
+        "You can cancel within 3 days of signing your package, before any dispute letters are sent to the bureaus. On the last day of that window we reach out to confirm what you decide. If you cancel, send a written notice with your name and the name of the package you chose. Because you only pay after your disputes are finalized, there are no refunds or money-back guarantees needed beyond that window.",
+    },
+    {
+      keys: ["serve", "area", "location", "where do you", "massachusetts", "remote", "online", "only in"],
+      reply:
+        "Grand Ascension is based in Massachusetts and works with clients across the state, fully remote and online. Report reviews, disputes, and updates all happen over text, phone, and email, so there is no need to meet in person.",
     },
     {
       keys: ["funding", "loan", "lender", "mortgage", "finance assistance", "capital", "business loan"],
@@ -104,7 +114,7 @@
     {
       keys: ["hi", "hello", "hey", "sup", "help", "start", "what can you", "options", "menu"],
       reply:
-        "I am the Grand Ascension assistant. I can answer questions about pricing, disputes, the process, our story, or run a quick 30-second check to see if we can help. Pick a topic below or type your question.",
+        "I am the Grand Ascension assistant. I can answer questions about pricing, disputes, the process, our story, or run a quick 30-second check to see if we can help. Pick a topic or type your question.",
       chips: TOPICS,
     },
   ];
@@ -116,17 +126,17 @@
     {
       keys: ["starter", "credit analysis", "analysis package", "$200", "200 dollar"],
       reply:
-        "The Starter Plan, $200:\n\n- Full credit report review\n- Written credit improvement plan\n- Personal credit score analysis\n\nWho it's for: you want to understand your report and hold a written plan before any disputing. It is the right starting point when you are not sure what is on your report yet.\n\nIf your report already has negative marks you want cleaned up, Fresh Start at $450 is the natural step up.\n\nText the word CREDIT to 617-639-7975 and a consultant texts you right there to see how they can help:",
+        "The Starter Plan, $200:\n\n- Full credit report review\n- Written credit improvement plan\n- Personal credit score analysis\n\nWho it's for: you want to understand your report and hold a written plan before any disputing. It is the right starting point when you are not sure what is on your report yet.\n\nIf your report already has negative marks you want cleaned up, Fresh Start at $450 is the natural step up.\n\nNo upfront payment. If your score starts below 600 and our work does not get it to at least 600, you do not pay at all.\n\nText the word CREDIT to 617-639-7975 and a consultant texts you right there to see how they can help:",
     },
     {
       keys: ["fresh start", "dispute package", "$450", "450 dollar", "hard inquiry", "hard inquiries", "inquiry"],
       reply:
-        "Fresh Start, $450, is the Dispute Package and the most popular choice:\n\n- Everything in the Starter plan\n- Remove up to 10 hard inquiry items\n- Dispute letters for negative entries\n- Personalized dispute strategy\n\nWho it's for: your report has real marks on it, like hard inquiries and late payments, and you are ready to act. Most people pick this one because it pairs the analysis with the removal work.\n\nIf marks are spread across the whole report and you want everything managed end to end, Complete Repair at $750 is the full program.\n\nText the word CREDIT to 617-639-7975 and a consultant texts you right there to see how they can help:",
+        "Fresh Start, $450, is the Dispute Package and the most popular choice:\n\n- Everything in the Starter plan\n- Remove up to 10 hard inquiry items\n- Dispute letters for negative entries\n- Personalized dispute strategy\n\nWho it's for: your report has real marks on it, like hard inquiries and late payments, and you are ready to act. Most people pick this one because it pairs the analysis with the removal work.\n\nIf marks are spread across the whole report and you want everything managed end to end, Complete Repair at $750 is the full program.\n\nNo upfront payment. If your score starts below 600 and our work does not get it to at least 600, you do not pay at all.\n\nText the word CREDIT to 617-639-7975 and a consultant texts you right there to see how they can help:",
     },
     {
       keys: ["complete repair", "repair package", "$750", "750 dollar", "everything in fresh", "full program"],
       reply:
-        "Complete Repair, $750, is the full program:\n\n- Everything in the Fresh Start plan\n- Debt validation letters\n- Full ongoing dispute management\n- Financial roadmap toward rebuilding\n\nWho it's for: marks spread across your whole report (late payments, collections, repossessions, closed accounts), a history of setbacks, or you want the process handled end to end plus the path to financing.\n\nText the word CREDIT to 617-639-7975 and a consultant texts you right there to see how they can help:",
+        "Complete Repair, $750, is the full program:\n\n- Everything in the Fresh Start plan\n- Debt validation letters\n- Full ongoing dispute management\n- Financial roadmap toward rebuilding\n\nWho it's for: marks spread across your whole report (late payments, collections, repossessions, closed accounts), a history of setbacks, or you want the process handled end to end plus the path to financing.\n\nNo upfront payment. If your score starts below 600 and our work does not get it to at least 600, you do not pay at all.\n\nText the word CREDIT to 617-639-7975 and a consultant texts you right there to see how they can help:",
     },
   ];
 
