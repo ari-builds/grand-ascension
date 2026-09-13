@@ -116,17 +116,17 @@
     {
       keys: ["starter", "credit analysis", "analysis package", "$200", "200 dollar"],
       reply:
-        "The Starter Plan, $200:\n\n- Full credit report review\n- Written credit improvement plan\n- Personal credit score analysis\n\nWho it's for: you want to understand your report and hold a written plan before any disputing. It is the right starting point when you are not sure what is on your report yet.\n\nIf your report already has negative marks you want cleaned up, Fresh Start at $450 is the natural step up.\n\nText the word CREDIT and a consultant texts you right there to see how they can help:",
+        "The Starter Plan, $200:\n\n- Full credit report review\n- Written credit improvement plan\n- Personal credit score analysis\n\nWho it's for: you want to understand your report and hold a written plan before any disputing. It is the right starting point when you are not sure what is on your report yet.\n\nIf your report already has negative marks you want cleaned up, Fresh Start at $450 is the natural step up.\n\nText the word CREDIT to 617-639-7975 and a consultant texts you right there to see how they can help:",
     },
     {
       keys: ["fresh start", "dispute package", "$450", "450 dollar", "hard inquiry", "hard inquiries", "inquiry"],
       reply:
-        "Fresh Start, $450, is the Dispute Package and the most popular choice:\n\n- Everything in the Starter plan\n- Remove up to 10 hard inquiry items\n- Dispute letters for negative entries\n- Personalized dispute strategy\n\nWho it's for: your report has real marks on it, like hard inquiries and late payments, and you are ready to act. Most people pick this one because it pairs the analysis with the removal work.\n\nIf marks are spread across the whole report and you want everything managed end to end, Complete Repair at $750 is the full program.\n\nText the word CREDIT and a consultant texts you right there to see how they can help:",
+        "Fresh Start, $450, is the Dispute Package and the most popular choice:\n\n- Everything in the Starter plan\n- Remove up to 10 hard inquiry items\n- Dispute letters for negative entries\n- Personalized dispute strategy\n\nWho it's for: your report has real marks on it, like hard inquiries and late payments, and you are ready to act. Most people pick this one because it pairs the analysis with the removal work.\n\nIf marks are spread across the whole report and you want everything managed end to end, Complete Repair at $750 is the full program.\n\nText the word CREDIT to 617-639-7975 and a consultant texts you right there to see how they can help:",
     },
     {
       keys: ["complete repair", "repair package", "$750", "750 dollar", "everything in fresh", "full program"],
       reply:
-        "Complete Repair, $750, is the full program:\n\n- Everything in the Fresh Start plan\n- Debt validation letters\n- Full ongoing dispute management\n- Financial roadmap toward rebuilding\n\nWho it's for: marks spread across your whole report (late payments, collections, repossessions, closed accounts), a history of setbacks, or you want the process handled end to end plus the path to financing.\n\nText the word CREDIT and a consultant texts you right there to see how they can help:",
+        "Complete Repair, $750, is the full program:\n\n- Everything in the Fresh Start plan\n- Debt validation letters\n- Full ongoing dispute management\n- Financial roadmap toward rebuilding\n\nWho it's for: marks spread across your whole report (late payments, collections, repossessions, closed accounts), a history of setbacks, or you want the process handled end to end plus the path to financing.\n\nText the word CREDIT to 617-639-7975 and a consultant texts you right there to see how they can help:",
     },
   ];
 
@@ -244,6 +244,7 @@
   }
 
   function typing(then) {
+    clearChips();
     var t = el('<div class="ga-bubble ga-bot ga-typing"><i></i><i></i><i></i></div>');
     body.appendChild(t);
     body.scrollTop = body.scrollHeight;
@@ -316,7 +317,7 @@
 
     if (ph) {
       botAction(ph.p.reply, [
-        { label: "Text 'CREDIT'", href: KEYWORD_SMS, primary: true },
+        { label: "Text 'CREDIT' to 617-639-7975", href: KEYWORD_SMS, primary: true },
         { label: "Book Free Consultation", href: BOOK },
       ]);
       return;
@@ -327,7 +328,7 @@
       botAction(
         "Quick way to think about it:\n\n- A couple of marks or you just want the plan? Starter, $200.\n- Marks plus inquiries you want removed? Fresh Start, $450.\n- Marks all over and you want it handled end to end? Complete Repair, $750.\n\nText the word CREDIT and a consultant texts you back right there to confirm which one fits you:",
         [
-          { label: "Text 'CREDIT'", href: KEYWORD_SMS, primary: true },
+          { label: "Text 'CREDIT' to 617-639-7975", href: KEYWORD_SMS, primary: true },
           { label: "Book Free Consultation", href: BOOK },
         ]
       );

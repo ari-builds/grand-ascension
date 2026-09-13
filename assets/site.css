@@ -316,12 +316,15 @@ body.rnm-locked { overflow: hidden; }
 .ga-chips { display: flex; flex-wrap: wrap; gap: .45rem; padding: .2rem 0 0; }
 .ga-chip {
   font-family: "Outfit", sans-serif; font-size: .76rem; font-weight: 600; color: var(--gold-2);
-  background: transparent; border: 1px solid rgba(156, 118, 34, .45); border-radius: 9999px; padding: .38rem .7rem; cursor: pointer;
-  transition: background .15s ease, color .15s ease;
+  background: transparent; border: 1px solid rgba(156, 118, 34, .45); border-radius: 9999px;
+  padding: .42rem .8rem; min-height: 2.5rem; display: inline-flex; align-items: center; justify-content: center;
+  cursor: pointer; -webkit-tap-highlight-color: transparent;
+  transition: background .15s ease, color .15s ease, border-color .15s ease;
 }
-.ga-chip:hover { background: var(--gold-solid); color: #2b2110; }
-.ga-act { display: flex; gap: .5rem; margin-top: .1rem; }
-.ga-act .btn { padding: .55rem .9rem; font-size: .8rem; }
+.ga-chip:hover { background: var(--gold-solid); color: #2b2110; border-color: var(--gold-solid); }
+.ga-chip:active { background: var(--gold-2); color: #fff; }
+.ga-act { display: flex; flex-wrap: wrap; gap: .5rem; margin-top: .1rem; }
+.ga-act .btn { padding: .6rem .95rem; font-size: .8rem; min-height: 2.6rem; display: inline-flex; align-items: center; justify-content: center; }
 #gaChat .ga-in {
   display: flex; gap: .5rem; padding: .7rem; border-top: 1px solid var(--line); background: var(--bg-2);
 }
