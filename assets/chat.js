@@ -17,6 +17,8 @@
   var BOOK = "https://calendly.com/grandascensionllc/30min";
   var EMAIL = "grandascensionllc@gmail.com";
 
+  var TOPICS = ["Pricing & packages", "What can be disputed", "How long does it take?", "Our story", "Book a consult"];
+
   var FAQ = [
     {
       keys: ["pricing", "price", "cost", "how much", "package", "packages", "fee", "pay", "plan"],
@@ -103,6 +105,7 @@
       keys: ["hi", "hello", "hey", "sup", "help", "start", "what can you", "options", "menu"],
       reply:
         "I am the Grand Ascension assistant. I can answer questions about pricing, disputes, the process, our story, or run a quick 30-second check to see if we can help. Pick a topic below or type your question.",
+      chips: TOPICS,
     },
   ];
 
@@ -188,10 +191,7 @@
           "Hi, I'm the Grand Ascension assistant. Ask me about pricing, disputes, the process, or our story, and I'll give you a straight answer.",
           function () {
             if (body.dataset.engaged) return;
-            chips(
-              ["Pricing & packages", "What can be disputed", "How long does it take?", "Our story", "Book a consult"],
-              handle
-            );
+            chips(TOPICS, handle);
           }
         );
       }
@@ -382,7 +382,9 @@
       } else {
         botMsg(hit.f.reply);
       }
-      if (/price|package|how much|cost|worth|legit|scam/.test(n)) {
+      if (hit.f.chips) {
+        chips(hit.f.chips, handle);
+      } else if (/price|package|how much|cost|worth|legit|scam/.test(n)) {
         chips(["Starter plan", "Fresh Start", "Complete Repair"], handle);
       }
       return;
