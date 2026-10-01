@@ -29,7 +29,7 @@
       <a href="blog.html">Blog</a>
       <a href="https://calendly.com/grandascensionllc/30min" target="_blank" rel="noopener">Free Consultation</a>
     </nav>
-    <a class="btn btn-gold head-cta" href="https://calendly.com/grandascensionllc/30min" target="_blank" rel="noopener">Free Consultation</a>
+    <a data-cta="true" class="btn btn-gold head-cta" href="https://calendly.com/grandascensionllc/30min" target="_blank" rel="noopener">Free Consultation</a>
     <button id="rnmBtn" aria-label="Menu">&#9776;</button>
   </div>
 </header>
@@ -52,7 +52,7 @@
         <li>The messages you send through the site chat, so we can respond and improve.</li>
         <li>Files you attach to the contact form, such as screenshots you choose to send.</li>
         <li>Booking details when you schedule on Calendly (handled by Calendly's own privacy policy too).</li>
-        <li>Standard analytics that a website host may record, like general location and pages visited. This site itself does not set tracking cookies.</li>
+        <li>Website analytics, including CTA button clicks, click time, page URL, and destination URL, to understand what visitors use most.</li>
       </ul>
 
       <h2>How we use it</h2>
@@ -60,6 +60,7 @@
         <li>To respond to your message and book your consultation.</li>
         <li>To send the SMS reply after you text the CREDIT keyword.</li>
         <li>To prepare the free consult and any credit analysis you request.</li>
+        <li>To understand site activity trends so we can improve which services and pages are easiest to use.</li>
         <li>Never to sell your information. Ever.</li>
       </ul>
 
@@ -73,7 +74,7 @@
       <p>This site is for adults 18 and older. We do not knowingly collect information from anyone under 18.</p>
 
       <h2>Changes</h2>
-      <p>If this policy changes in a meaningful way, we will update this page and note the date below. Last updated: September 2026.</p>
+      <p>If this policy changes in a meaningful way, we will update this page and note the date below. Last updated: October 2026.</p>
 
       <h2>Contact</h2>
       <p>Questions about privacy? Email grandascensionllc@gmail.com or call (617) 639-7975.</p>
@@ -127,8 +128,8 @@
     <a href="contact.html">Free Consultation</a>
   </nav>
   <div class="menu-cta">
-    <a class="btn btn-gold" href="tel:+16176397975">Call (617) 639-7975</a>
-    <a class="btn btn-ghost" href="sms:+16176397975?&body=CREDIT">Text "CREDIT"</a>
+    <a data-cta="true" class="btn btn-gold" href="tel:+16176397975">Call (617) 639-7975</a>
+    <a data-cta="true" class="btn btn-ghost" href="sms:+16176397975?&body=CREDIT">Text "CREDIT"</a>
   </div>
   <p class="menu-note">Free 30-minute consult &middot; Text the word CREDIT to 617-639-7975</p>
 </div>
@@ -147,6 +148,7 @@
   });
 })();
 </script>
+<script src="assets/analytics.js" defer></script>
 <script src="assets/chat.js" defer></script>
 </body>
 </html>
