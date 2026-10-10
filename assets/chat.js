@@ -17,7 +17,7 @@
   var BOOK = "https://calendly.com/grandascensionllc/30min";
   var EMAIL = "grandascensionllc@gmail.com";
 
-var TOPICS = ["Pricing & packages", "What can be disputed", "How long does it take?", "Tradelines & building", "Our story", "Book a consult"];
+var TOPICS = ["Packages", "What can be disputed", "How long does it take?", "Tradelines & building", "Our story", "Book a consult"];
 
   var FAQ = [
     {
@@ -30,7 +30,7 @@ var TOPICS = ["Pricing & packages", "What can be disputed", "How long does it ta
     {
       keys: ["pricing", "price", "cost", "how much", "package", "packages", "fee", "pay", "plan"],
 reply:
-        "Three packages, each for a different stage:\n\n- Starter / Credit Analysis: $200\n- Fresh Start / Dispute: $450\n- Complete Repair: $750\n\nNo upfront payment on any package. You pay only after every dispute is fully finalized and you receive your final summary report. If your score starts below 600 and our work does not get it to at least 600, you do not pay at all.\n\nTap a package for the full breakdown, or text the word CREDIT and a consultant helps you pick right in your text thread:",
+        "Three packages, each for a different stage:\n\n- Starter / Credit Analysis\n- Fresh Start Package / Dispute\n- Complete Premium Package / Full program\n\nNo upfront payment on any package. You pay only after every dispute is fully finalized and you receive your final summary report. If your score starts below 600 and our work does not get it to at least 600, you do not pay at all.\n\nJelinsky goes over exact pricing on your free consultation. Tap a package for the full breakdown, or text the word CREDIT and a consultant helps you pick right in your text thread:",
     },
     {
       keys: ["what can", "fix", "remove", "negative", "late", "payment", "collection", "repo", "closed", "inquiry", "hard", "challenge", "dispute", "disputes", "scratch"],
@@ -133,17 +133,17 @@ reply:
     {
       keys: ["starter", "credit analysis", "analysis package", "$200", "200 dollar"],
       reply:
-        "The Starter Plan, $200:\n\n- Full credit report review\n- Written credit improvement plan\n- Personal credit score analysis\n\nWho it's for: you want to understand your report and hold a written plan before any disputing. It is the right starting point when you are not sure what is on your report yet.\n\nIf your report already has negative marks you want cleaned up, Fresh Start at $450 is the natural step up.\n\nNo upfront payment. If your score starts below 600 and our work does not get it to at least 600, you do not pay at all.\n\nText the word CREDIT to 617-639-7975 and a consultant texts you right there to see how they can help:",
+        "The Starter Plan (Credit Analysis Package):\n\n- Full credit report review\n- Written credit improvement plan\n- Personal credit score analysis\n\nWho it's for: you want to understand your report and hold a written plan before any disputing. It is the right starting point when you are not sure what is on your report yet.\n\nIf your report already has negative marks you want cleaned up, the Fresh Start Package is the natural step up.\n\nNo upfront payment. If your score starts below 600 and our work does not get it to at least 600, you do not pay at all.\n\nText the word CREDIT to 617-639-7975 and a consultant texts you right there to see how they can help:",
     },
     {
       keys: ["fresh start", "dispute package", "$450", "450 dollar", "hard inquiry", "hard inquiries", "inquiry"],
       reply:
-        "Fresh Start, $450, is the Dispute Package and the most popular choice:\n\n- Everything in the Starter plan\n- Remove up to 10 hard inquiry items\n- Challenge up to 5 negative accounts\n- Dispute letters for negative entries\n- Personalized dispute strategy\n\nWho it's for: your report has real marks on it, like hard inquiries and late payments, and you are ready to act. Most people pick this one because it pairs the analysis with the removal work.\n\nIf marks are spread across the whole report and you want everything managed end to end, Complete Repair at $750 is the full program.\n\nNo upfront payment. If your score starts below 600 and our work does not get it to at least 600, you do not pay at all.\n\nText the word CREDIT to 617-639-7975 and a consultant texts you right there to see how they can help:",
+        "Fresh Start Package is the Dispute Package and the most popular choice:\n\n- Everything in the Starter plan\n- Remove up to 10 hard inquiry items\n- Challenge up to 5 negative accounts\n- Dispute letters for negative entries\n- Personalized dispute strategy\n\nWho it's for: your report has real marks on it, like hard inquiries and late payments, and you are ready to act. Most people pick this one because it pairs the analysis with the removal work.\n\nIf marks are spread across the whole report and you want everything managed end to end, the Complete Premium Package is the full program.\n\nNo upfront payment. If your score starts below 600 and our work does not get it to at least 600, you do not pay at all.\n\nText the word CREDIT to 617-639-7975 and a consultant texts you right there to see how they can help:",
     },
     {
-      keys: ["complete repair", "repair package", "$750", "750 dollar", "everything in fresh", "full program"],
-reply:
-        "Complete Repair, $750, is the full program:\n\n- Everything in the Fresh Start plan\n- Priority, expedited handling so your disputes move faster\n- Debt validation letters\n- Full ongoing dispute management\n- Financial roadmap toward rebuilding\n\nWho it's for: marks spread across your whole report (late payments, collections, repossessions, closed accounts), a history of setbacks, or you want the process handled end to end plus the path to financing.\n\nNo upfront payment. If your score starts below 600 and our work does not get it to at least 600, you do not pay at all.\n\nText the word CREDIT to 617-639-7975 and a consultant texts you right there to see how they can help:",
+keys: ["complete repair", "repair package", "complete premium", "premium package", "$750", "750 dollar", "everything in fresh", "full program"],
+      reply:
+        "The Complete Premium Package is the full program:\n\n- Everything in the Fresh Start plan\n- Priority, expedited handling so your disputes move faster\n- Debt validation letters\n- Full ongoing dispute management\n- Financial roadmap toward rebuilding\n\nWho it's for: marks spread across your whole report (late payments, collections, repossessions, closed accounts), a history of setbacks, or you want the process handled end to end plus the path to financing.\n\nNo upfront payment. If your score starts below 600 and our work does not get it to at least 600, you do not pay at all.\n\nText the word CREDIT to 617-639-7975 and a consultant texts you right there to see how they can help:",
     },
   ];
 
@@ -205,7 +205,7 @@ reply:
       if (!body.dataset.started) {
         body.dataset.started = "1";
         botMsg(
-          "Hi, I'm the Grand Ascension assistant. Ask me about pricing, disputes, the process, or our story, and I'll give you a straight answer.",
+          "Hi, I'm the Grand Ascension assistant. Ask me about packages, disputes, the process, or our story, and I'll give you a straight answer.",
           function () {
             if (body.dataset.engaged) return;
             chips(TOPICS, handle);
@@ -343,7 +343,7 @@ reply:
     /* Recommendation: no package named, but they want help choosing. */
     if (/which .*package|which .*plan|which one|recommend|what .*fit|what should|help me choose|pick|best for me/.test(n)) {
       botAction(
-        "Quick way to think about it:\n\n- A couple of marks or you just want the plan? Starter, $200.\n- Marks plus inquiries you want removed? Fresh Start, $450.\n- Marks all over and you want it handled end to end? Complete Repair, $750.\n\nText the word CREDIT and a consultant texts you back right there to confirm which one fits you:",
+        "Quick way to think about it:\n\n- A couple of marks or you just want the plan? Starter.\n- Marks plus inquiries you want removed? Fresh Start Package.\n- Marks all over and you want it handled end to end? Complete Premium Package.\n\nJelinsky goes over exact pricing on your free consultation. Text the word CREDIT and a consultant texts you back right there to confirm which one fits you:",
         [
           { label: "Text 'CREDIT' to 617-639-7975", href: KEYWORD_SMS, primary: true },
           { label: "Book Free Consultation", href: BOOK },
@@ -381,7 +381,7 @@ reply:
 
     /* Praise, thanks, small talk. */
     if (/thanks|thank you|thx|appreciate|ok|okay|great|awesome|cool|perfect|nice|good phone/.test(n)) {
-      botMsg("Happy to help. Anything else about pricing, disputes, the process, or our story?");
+      botMsg("Happy to help. Anything else about packages, disputes, the process, or our story?");
       return;
     }
 
@@ -403,7 +403,7 @@ reply:
       if (hit.f.chips) {
         chips(hit.f.chips, handle);
       } else if (/price|package|how much|cost|worth|legit|scam/.test(n)) {
-        chips(["Starter plan", "Fresh Start", "Complete Repair"], handle);
+        chips(["Starter plan", "Fresh Start Package", "Complete Premium Package"], handle);
       }
       return;
     }
@@ -417,7 +417,7 @@ reply:
     botMsg(
       "I don't have a solid answer for that one, and I won't make one up. The right move is a free 30-minute consult where you can ask it directly."
     );
-    chips(["Book a consult", "Pricing & packages", "What can be disputed", "Our story"], handle);
+    chips(["Book a consult", "Packages", "What can be disputed", "Our story"], handle);
   }
 
   /* Full-AI path. Sends the message to the bot's /site-chat endpoint, which
