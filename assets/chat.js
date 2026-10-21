@@ -84,7 +84,7 @@ reply:
 {
       keys: ["guarantee", "guaranteed", "results", "score go", "how fast", "improve", "worth", "legit", "scam", "real", "trust", "ripoff"],
       reply:
-        "We never promise a specific number, and results depend on how the bureaus respond. What we can promise is this: you pay nothing upfront, and if your score starts below 600 and our work does not get it to at least 600, you do not pay at all for the package. Every package carries that outcome guarantee. You also get a written plan, personal dispute letters, and a process run item by item.",
+        "We do not promise a particular score increase, and results depend on how the bureaus respond. Here is the billing term: you pay nothing upfront, and if your score starts below 600 and our work does not get it to at least 600, you do not pay for the package. You also get a written plan, personal dispute letters, and a process run item by item.",
     },
     {
       keys: ["cancel", "cancellation", "change my mind", "back out", "refund", "money back"],
