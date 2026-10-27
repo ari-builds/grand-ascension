@@ -370,14 +370,5 @@ body.rnm-locked { overflow: hidden; }
 .send-row .btn { flex: 1 1 12rem; }
 
 
-/* founder portrait framing in the hero */
-.hero-poster img {
-  max-height: 26rem;
-  object-fit: cover;
-  object-position: center 16%;
-}
-@media (min-width: 768px) {
-  .hero-poster img { max-height: 32rem; }
-}
 /* founder portrait framing on interior pages */
 .about-grid img { max-height: 34rem; object-fit: cover; object-position: center 12%; }
